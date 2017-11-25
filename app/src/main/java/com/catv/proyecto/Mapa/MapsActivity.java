@@ -72,38 +72,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
 
         this.googlemap = googleMap;
-
-        if (this.opcion.equalsIgnoreCase("1")){
-
-            Cliente cliente = new Cliente();
-            Geolocalizacion<com.catv.proyecto.Modelo.Cliente> geolocalizacion = new Geolocalizacion<>();
-            geolocalizacion.setLatitud_origen(Ubicacion.latitud);
-            geolocalizacion.setLongitud_origen(Ubicacion.longitud);
-            geolocalizacion.setLista_ubicaciones(cliente.getLista_clientes());
-
-
-            for (int i = 0; i < geolocalizacion.lista_ubicaciones_seleccionadas().size(); i++) {
-
-                googleMap.addMarker(new MarkerOptions()
-                        .position(geolocalizacion.lista_ubicaciones_seleccionadas().get(i)));
-
-            }
-
-        }
-
-        LatLng myUbica = new LatLng(Ubicacion.latitud, Ubicacion.longitud);
-
-        CameraPosition cameraposition = CameraPosition.builder()
-                .target(myUbica)
-                .zoom(10)
-                .build();
-
-        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraposition));
-        GoogleMap mMap = googleMap;
-        mMap.setOnMapClickListener(this);
-
-
-
     }
 
 
@@ -189,6 +157,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+
+
+    public void AgregarCliente(View view){
+
+    }
 
 
 
