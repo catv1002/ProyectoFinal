@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "99885997011",
+    "firebase_url": "https://proyecto-228da.firebaseio.com",
+    "project_id": "proyecto-228da",
+    "storage_bucket": "proyecto-228da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99885997011:android:d4a85f5740f1bff5",
+        "android_client_info": {
+          "package_name": "com.catv.proyecto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99885997011-efl7ss7lv4b1khiedhq6hf7rqb7jtd7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF87TgEsppzpUublzHEe8swEH4RzWbJgc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.catv.proyecto.Login"
+    android:background="@color/background">
+
+
+
+    <ImageView
+        android:layout_width="138dp"
+        android:layout_height="200dp"
+        android:id="@+id/logo"
+        android:src="@drawable/ic_dog"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editTextCorreo_R"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:inputType="textPersonName"
+        android:hint="Correo" />
+
+    <EditText
+        android:id="@+id/editTextContraseña_R"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextCorreo_R"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:hint="Contraseña" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextCorreo_R"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="Agregar"
+        android:id="@+id/btIngresar"
+        android:onClick="Agregar"/>
+
+
+
+
+</RelativeLayout>

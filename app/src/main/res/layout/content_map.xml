@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.catv.proyecto.Mapa.MapsActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/primero" />
+
+    <LinearLayout
+        android:id="@+id/primero"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:background="@color/background"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_route" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="MostrarHotel"
+            android:src="@drawable/ic_hotel" />
+
+        <ImageButton
+            android:id="@+id/btConsultarClienteCercano"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="MostrarRestaurante"
+            android:background="@null"
+            android:src="@drawable/ic_plate_fork_and_knife"
+            android:text="ImageButton" />
+
+        <ImageButton
+            android:id="@+id/btGuardarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="MostrarCliente"
+            android:src="@drawable/ic_user" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/segundo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@color/background"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Agregar"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp" />
+
+        <ImageButton
+            android:id="@+id/ImageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_weight="0.3"
+            android:background="@null"
+            android:onClick="AgregarHotel"
+            android:src="@drawable/ic_hotel" />
+
+        <ImageButton
+            android:id="@+id/ImageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="0.3"
+            android:background="@null"
+            android:onClick="AgregarRestaurante"
+            android:src="@drawable/ic_plate_fork_and_knife"
+
+            />
+
+        <ImageButton
+            android:id="@+id/ImageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="0.3"
+            android:background="@null"
+            android:onClick="AgregarCliente"
+            android:src="@drawable/ic_user" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
