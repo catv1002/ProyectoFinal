@@ -29,43 +29,41 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="black"
+                android:textColor="#000"
                 android:layout_marginLeft="80dp"
                 android:textSize="30dp"
                 android:text="Codigo:" />
 
-            <TextView
-                android:id="@+id/resultadoCodigo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textSize="25dp"
-                android:text="TextView" />
+            <EditText
+            android:id="@+id/etCodigo"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:numeric="integer"
+            />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/codigo"
+            android:layout_below="@+id/nombre"
             android:id="@+id/nombre"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="black"
+                android:textColor="#000"
                 android:layout_marginLeft="80dp"
                 android:textSize="30dp"
-                android:text="Codigo:" />
+                android:text="Nombre:" />
 
-            <TextView
-                android:id="@+id/resultadoCodigo"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textSize="25dp"
-                android:text="TextView" />
+
+                />
 
         </LinearLayout>
 

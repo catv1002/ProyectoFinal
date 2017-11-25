@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.catv.proyecto.Constantes.Cliente;
 import com.catv.proyecto.Constantes.Producto;
@@ -25,12 +26,19 @@ public class Inicio extends AppCompatActivity
 
     private static final String TAG = "Inicio";
 
+
+    private EditText codigo, precio_min, precio_max, cantidad, bodega;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ///layout_productos
+        //codigo = (EditText)findViewById(R.i)
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -156,6 +164,7 @@ public class Inicio extends AppCompatActivity
         Producto.producto_qr = scanResult.getContents();
         Log.d(TAG, "onActivityResult: " + Producto.producto_qr);
 
+        setContentView(R.layout.layout_producto);
         //Intent intent_c_producto_c = new Intent(getApplicationContext(), cProductoC.class);
         //startActivity(intent_c_producto_c);
 
