@@ -45,6 +45,8 @@ public class Cliente {
     }
 
 
+    
+
     public Cliente(String nombre1, String nombre2, String apellido1, String apellido2, String correo, String ciudad, String direccion, String telefono, String idCliente, int idUbica) {
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
