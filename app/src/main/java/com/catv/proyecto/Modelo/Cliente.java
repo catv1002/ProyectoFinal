@@ -38,16 +38,12 @@ import static com.catv.proyecto.Constantes.Conexion.CLIENTE_INSERT;
 public class Cliente {
 
     private String nombre1, nombre2, apellido1, apellido2, correo, ciudad, direccion, telefono, idCliente;
-    private int idUbica;
-
 
     public Cliente() {
     }
 
 
-    
-
-    public Cliente(String nombre1, String nombre2, String apellido1, String apellido2, String correo, String ciudad, String direccion, String telefono, String idCliente, int idUbica) {
+    public Cliente(String nombre1, String nombre2, String apellido1, String apellido2, String correo, String ciudad, String direccion, String telefono, String idCliente) {
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
         this.apellido1 = apellido1;
@@ -57,15 +53,7 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.idCliente = idCliente;
-        this.idUbica = idUbica;
     }
-
-
-    public Cliente(String idCliente, int idUbica) {
-        this.idCliente = idCliente;
-        this.idUbica = idUbica;
-    }
-
 
     public String getNombre1() {
         return nombre1;
@@ -139,14 +127,35 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public int getIdUbica() {
-        return idUbica;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre1='" + nombre1 + '\'' +
+                ", nombre2='" + nombre2 + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                ", correo='" + correo + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", idCliente='" + idCliente + '\'' +
+                '}';
     }
 
-    public void setIdUbica(int idUbica) {
-        this.idUbica = idUbica;
-    }
+    public LinkedHashMap<String, String> insertCliente() {
+        LinkedHashMap<String, String> hashMapToken = new LinkedHashMap<>();
+        hashMapToken.put("nombre1", getNombre1());
+        hashMapToken.put("nombre2", getNombre2());
+        hashMapToken.put("apeliido1", getApellido1());
+        hashMapToken.put("apellido2", getApellido2());
+        hashMapToken.put("correo", getCorreo());
+        hashMapToken.put("ciudad", getCiudad());
+        hashMapToken.put("dir", getDireccion());
+        hashMapToken.put("telefono", getTelefono());
+        hashMapToken.put("idCliente", getIdCliente());
 
+        return hashMapToken;
+    }
 
 
 }
