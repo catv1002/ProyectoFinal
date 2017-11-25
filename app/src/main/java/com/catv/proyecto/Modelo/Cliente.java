@@ -25,6 +25,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -36,59 +37,80 @@ import static com.catv.proyecto.Constantes.Conexion.CLIENTE_INSERT;
 
 public class Cliente {
 
-    private int codigo;
-    private int codigo_ubicacion = new Ubicacion().Generar_Codigo();
-    private String nombre;
-    private String telefono;
-    private String direccion;
-    private static List<Cliente> lista_clientes = new ArrayList<Cliente>();
-    //parametros de ubicacion
-    private double latitud_ubicacion;
-    private double longitud_ubicacion;
+    private String nombre1, nombre2, apellido1, apellido2, correo, ciudad, direccion, telefono, idCliente;
+    private int idUbica;
+
 
     public Cliente() {
-
-
     }
 
-    public Cliente(int codigo, String nombre, String telefono, String direccion) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.telefono = telefono;
+
+    public Cliente(String nombre1, String nombre2, String apellido1, String apellido2, String correo, String ciudad, String direccion, String telefono, String idCliente, int idUbica) {
+        this.nombre1 = nombre1;
+        this.nombre2 = nombre2;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.correo = correo;
+        this.ciudad = ciudad;
         this.direccion = direccion;
-
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getCodigo_ubicacion() {
-        return codigo_ubicacion;
-    }
-
-    public void setCodigo_ubicacion(int codigo_ubicacion) {
-        this.codigo_ubicacion = codigo_ubicacion;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
         this.telefono = telefono;
+        this.idCliente = idCliente;
+        this.idUbica = idUbica;
+    }
+
+
+    public Cliente(String idCliente, int idUbica) {
+        this.idCliente = idCliente;
+        this.idUbica = idUbica;
+    }
+
+
+    public String getNombre1() {
+        return nombre1;
+    }
+
+    public void setNombre1(String nombre1) {
+        this.nombre1 = nombre1;
+    }
+
+    public String getNombre2() {
+        return nombre2;
+    }
+
+    public void setNombre2(String nombre2) {
+        this.nombre2 = nombre2;
+    }
+
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getDireccion() {
@@ -99,313 +121,30 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public double getLatitud_ubicacion() {
-        return latitud_ubicacion;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setLatitud_ubicacion(double latitud_ubicacion) {
-        this.latitud_ubicacion = latitud_ubicacion;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public double getLongitud_ubicacion() {
-        return longitud_ubicacion;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setLongitud_ubicacion(double longitud_ubicacion) {
-        this.longitud_ubicacion = longitud_ubicacion;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public static List<Cliente> getLista_clientes() {
-        return lista_clientes;
+    public int getIdUbica() {
+        return idUbica;
     }
 
-    public static void setLista_clientes(List<Cliente> lista_clientes) {
-        Cliente.lista_clientes = lista_clientes;
-    }
-
-
-    public String Masivo_Insertar_Modificar_Eliminar() throws JSONException {
-
-        List<NameValuePair> namevaluepairs;
-        String request = "";
-        HttpClient httpclient;
-        HttpPost httppost;
-        httpclient = new DefaultHttpClient();
-        httppost = new HttpPost(CLIENTE_INSERT);
-
-        System.out.println("HHHHHHHHHHHHHH1");
-
-        namevaluepairs = new ArrayList<NameValuePair>(1);
-        namevaluepairs.add(new BasicNameValuePair("json_clientes", this.Convertir_ListaProductos_JsonObject().toString()));
-
-        System.out.println("HHHHHHHHHHHHHH1,2");
-
-        try {
-
-            System.out.println("HHHHHHHHHHHHHH1.3");
-
-            httppost.setEntity(new UrlEncodedFormEntity(namevaluepairs));
-
-            ResponseHandler<String> responsehandler = new BasicResponseHandler();
-            request = httpclient.execute(httppost, responsehandler);
-
-            System.out.println("HHHHHHHHHHHHHH2");
-
-            System.out.println("/*-+/*-+/*-+/*-+/*-+" + request);
-
-        } catch (UnsupportedEncodingException e) {
-
-            e.printStackTrace();
-
-        } catch (ClientProtocolException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
-
-        return request;
-
-    }
-
-    public AsyncTask<String, String, String> acceso_masivo_insertar_modificar_eliminar() throws ExecutionException, InterruptedException {
-        Masivo_Insertar_Modificar_Eliminar masivo_insertar_modificar_eliminar = new Masivo_Insertar_Modificar_Eliminar();
-        return masivo_insertar_modificar_eliminar.execute();
-    }
-
-
-    class Masivo_Insertar_Modificar_Eliminar extends AsyncTask<String, String, String> {
-
-
-
-        @Override
-        protected String doInBackground(String... strings) {
-
-            try {
-                Masivo_Insertar_Modificar_Eliminar();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-
-
-        }
+    public void setIdUbica(int idUbica) {
+        this.idUbica = idUbica;
     }
 
 
 
-
-    private String convertStreamToString(InputStream is) throws IOException {
-
-        if (is != null) {
-
-            StringBuilder sb = new StringBuilder();
-            String line;
-
-            try {
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-
-                while ((line = reader.readLine()) != null) {
-
-                    sb.append(line).append("\n");
-
-                }
-
-            } finally {
-
-                is.close();
-
-            }
-
-            return sb.toString();
-
-        } else {
-
-            return "";
-
-        }
-
-
-    }
-
-
-    private boolean filtrarDatos() {
-
-        //lista_clientes = new ArrayList<Cliente>();
-
-        String data = "Consultar()";
-
-
-        if (!data.equalsIgnoreCase("") && !data.equalsIgnoreCase("0")) {
-
-            JSONObject json;
-
-            try {
-
-                json = new JSONObject(data);
-                JSONArray jsonArray = json.optJSONArray("clientes");
-
-                for (int i = 0; i < jsonArray.length(); i++) {
-
-                    Cliente cliente = new Cliente();
-                    JSONObject jsonArrayChild = jsonArray.getJSONObject(i);
-
-                    cliente.setCodigo(Integer.parseInt(jsonArrayChild.optString("codigo")));
-                    cliente.setCodigo_ubicacion(Integer.parseInt(jsonArrayChild.optString("codigo_ubicacion")));
-                    cliente.setNombre(jsonArrayChild.optString("nombre"));
-                    cliente.setTelefono(jsonArrayChild.optString("telefono"));
-                    cliente.setDireccion(jsonArrayChild.optString("direccion"));
-                    cliente.setLatitud_ubicacion(Double.parseDouble(jsonArrayChild.optString("latitud_ubicacion")));
-                    cliente.setLongitud_ubicacion(Double.parseDouble(jsonArrayChild.optString("longitud_ubicacion")));
-                    lista_clientes.add(cliente);
-
-                }
-
-            } catch (JSONException e) {
-
-                e.printStackTrace();
-
-            }
-
-            System.out.println("8888888888888888888" + lista_clientes);
-
-            return true;
-
-        }
-
-        return false;
-
-
-    }
-
-
-    public AsyncTask<String, String, String> acceso_consultar() throws ExecutionException, InterruptedException {
-        Consultar consultar = new Consultar();
-        return consultar.execute();
-    }
-
-
-    class Consultar extends AsyncTask<String, String, String> {
-
-
-        @Override
-        protected String doInBackground(String... strings) {
-
-            filtrarDatos();
-
-            return null;
-
-
-        }
-    }
-
-    public boolean Insertar() {
-
-        if (this.getLista_clientes().add(this)) {
-
-            System.out.println("----------" + this.getLista_clientes().toString());
-
-            return true;
-
-        }
-
-        return false;
-
-    }
-
-
-    public boolean Modificar() {
-
-
-        for (int i = 0; i < this.getLista_clientes().size(); i++) {
-
-            if (this.getLista_clientes().get(i).getCodigo() == this.codigo) {
-
-                this.getLista_clientes().get(i).setCodigo(this.codigo);
-                this.getLista_clientes().get(i).setCodigo_ubicacion(this.codigo_ubicacion);
-                this.getLista_clientes().get(i).setNombre(this.nombre);
-                this.getLista_clientes().get(i).setTelefono(this.telefono);
-                this.getLista_clientes().get(i).setDireccion(this.direccion);
-
-
-                System.out.println("----------" + this.getLista_clientes().toString());
-
-                return true;
-            }
-
-
-        }
-
-        return false;
-
-    }
-
-
-    public boolean Eliminar(int codigo) {
-
-        for (int i = 0; i < this.getLista_clientes().size(); i++) {
-
-            if (this.getLista_clientes().get(i).getCodigo() == codigo) {
-
-                this.getLista_clientes().remove(this.getLista_clientes().get(i));
-
-
-                System.out.println("----------" + this.getLista_clientes().toString());
-
-                return true;
-
-            }
-
-        }
-
-        return false;
-
-    }
-
-
-    public JSONObject Convertir_ListaProductos_JsonObject() throws JSONException {
-
-        JSONObject jo = new JSONObject();
-        JSONArray ja = new JSONArray();
-
-        for (int i = 0; i < this.getLista_clientes().size(); i++) {
-            JSONObject jgroup = new JSONObject();
-            jgroup.put("codigo", this.getLista_clientes().get(i).getCodigo());
-            jgroup.put("codigo_ubicacion", this.getLista_clientes().get(i).getCodigo_ubicacion());
-            jgroup.put("nombre", this.getLista_clientes().get(i).getNombre());
-            jgroup.put("telefono", this.getLista_clientes().get(i).getTelefono());
-            jgroup.put("direccion", this.getLista_clientes().get(i).getDireccion());
-            jgroup.put("latitud", this.getLista_clientes().get(i).getLatitud_ubicacion());
-            jgroup.put("longitud", this.getLista_clientes().get(i).getLongitud_ubicacion());
-
-            System.out.println("objeto" + jgroup);
-            ja.put(jgroup);
-            System.out.println("array_objetos" + ja);
-        }
-
-        jo.put("Clientes", ja);
-        System.out.println("json" + jo);
-
-        return jo;
-
-    }
-
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "codigo=" + codigo +
-                ", codigo_ubicacion=" + codigo_ubicacion +
-                ", nombre='" + nombre + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", latitud_ubicacion=" + latitud_ubicacion +
-                ", longitud_ubicacion=" + longitud_ubicacion +
-                '}';
-    }
 }

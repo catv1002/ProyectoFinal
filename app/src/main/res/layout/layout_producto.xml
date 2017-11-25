@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="black"
+                android:textColor="#000"
                 android:layout_marginLeft="80dp"
                 android:textSize="30dp"
                 android:text="Codigo:" />
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="black"
+                android:textColor="#000"
                 android:layout_marginLeft="80dp"
                 android:textSize="30dp"
                 android:text="Codigo:" />
@@ -79,7 +79,7 @@
         android:layout_marginTop="36dp"
         android:layout_alignParentBottom="true"
         android:text="Registro"
-        android:onClick="Registro"/>
+        android:onClick="AgregarProducto"/>
 
 
 </RelativeLayout>

@@ -40,7 +40,6 @@ public class Producto {
     private double precio_max;
     private int cantidad;
     private int bodega;
-    public static List<Producto> lista_productos = new ArrayList<Producto>();
 
     public Producto() {
     }
@@ -103,9 +102,6 @@ public class Producto {
         this.bodega = bodega;
     }
 
-    public static List<Producto> getLista_productos() {
-        return lista_productos;
-    }
 
 
     @Override
@@ -119,6 +115,9 @@ public class Producto {
                 ", bodega=" + bodega +
                 '}';
     }
+
+
+
 
 
 }

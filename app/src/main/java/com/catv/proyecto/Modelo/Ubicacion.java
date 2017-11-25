@@ -1,6 +1,7 @@
 package com.catv.proyecto.Modelo;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -9,42 +10,17 @@ import java.util.List;
 
 public class Ubicacion {
 
-    private int codigo;
-    private String latitud;
-    private String longitud;
-    private static List<Ubicacion> lista_ubicaciones = new ArrayList<Ubicacion>();
+    private String latitud, longitud, idCliente;
 
     public Ubicacion() {
-
-        lista_ubicaciones.add(new Ubicacion("3.383427914071563", "-76.52943167835474"));
-        lista_ubicaciones.add(new Ubicacion("3.3954603413268027", "-76.53099440038204"));
-        lista_ubicaciones.add(new Ubicacion("3.426530559373309", "-76.54773641377687"));
-        lista_ubicaciones.add(new Ubicacion("3.4183088552843515", "-76.54369298368694"));
-        lista_ubicaciones.add(new Ubicacion("3.47623913287551", "-76.52662172913551"));
-
     }
 
-    public Ubicacion(String latitud, String longitud) {
-
+    public Ubicacion(String latitud, String longitud, String idCliente) {
         this.latitud = latitud;
         this.longitud = longitud;
-
+        this.idCliente = idCliente;
     }
 
-
-    public Ubicacion(int codigo, String latitud, String longitud) {
-        this.codigo = codigo;
-        this.latitud = latitud;
-        this.longitud = longitud;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
     public String getLatitud() {
         return latitud;
@@ -62,23 +38,30 @@ public class Ubicacion {
         this.longitud = longitud;
     }
 
-    public static List<Ubicacion> getLista_ubicaciones() {
-        return lista_ubicaciones;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public static void setLista_ubicaciones(List<Ubicacion> lista_ubicaciones) {
-        Ubicacion.lista_ubicaciones = lista_ubicaciones;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
-
-    public int Generar_Codigo (){
-
-        int codigo_generado = (int) (Math.random()*100000 + 1);
-
-        this.codigo = codigo_generado;
-
-        return this.codigo;
-
+    @Override
+    public String toString() {
+        return "Ubicacion{" +
+                " latitud='" + latitud + '\'' +
+                ", longitud='" + longitud + '\'' +
+                ", idCliente='" + idCliente + '\'' +
+                '}';
     }
+
+    public LinkedHashMap<String, String> insertUbicacion() {
+        LinkedHashMap<String, String> hashMapToken = new LinkedHashMap<>();
+        hashMapToken.put("latitud", getIdCliente());
+        hashMapToken.put("longitud", getLongitud());
+        hashMapToken.put("idCliente", getLatitud());
+        return hashMapToken;
+    }
+
 
 }

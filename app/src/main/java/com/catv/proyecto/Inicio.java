@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.catv.proyecto.Constantes.Cliente;
 import com.catv.proyecto.Constantes.Producto;
@@ -24,6 +25,7 @@ public class Inicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "Inicio";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +160,9 @@ public class Inicio extends AppCompatActivity
 
         //Intent intent_c_producto_c = new Intent(getApplicationContext(), cProductoC.class);
         //startActivity(intent_c_producto_c);
+    }
 
+    public void AgregarProducto(View view){
 
     }
 }
